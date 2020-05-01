@@ -12,8 +12,9 @@ class Create extends React.Component {
     }
   }
   renderInput = ({ input, label, meta }) => {
+    const className = `field ${meta.error && meta.touched ? "error" : ""}`;
     return (
-      <div className="field">
+      <div className={className}>
         <label>{label}</label>
         <input {...input} autoComplete="off" />
         <div>{this.renderError(meta)}</div>
@@ -27,7 +28,7 @@ class Create extends React.Component {
       <div>
         <form
           onSubmit={this.props.handleSubmit(this.onSubmit)}
-          className="ui form"
+          className="ui error form"
         >
           <Field
             name="title"
